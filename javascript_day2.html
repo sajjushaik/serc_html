@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>JAVASCRIPT DAY-2</title>
+    <script>
+      function dateshow() {
+        today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //As January is 0.
+        var yyyy = today.getFullYear();
+        var op = dd + "/" + mm + "/" + yyyy;
+        console.log(op);
+      }
+      function keyfun() {
+        alert("pressed  key inside the input ");
+      }
+      function bet() {
+        var no = parseInt(document.getElementById("bet").value);
+        if (no <= 100 && no >= 10) {
+          alert("Number is  in the Range(10 - 100)");
+        } else {
+          alert("Number is not the Range(10 - 100)");
+        }
+      }
+      /*FIB series */
+      function fib() {
+        var var1 = 0,
+          var2 = 1,
+          var3;
+        var no = parseInt(document.getElementById("fib").value);
+        while (no) {
+          document.write(var1 + " ");
+          var3 = var1 + var2;
+          var1 = var2;
+          var2 = var3;
+          no -= 1;
+        }
+      }
+
+      /*Error handling*/
+
+      function err() {
+        var message, x;
+        message = document.getElementById("p1");
+        message1 = document.getElementById("p2");
+        x = document.getElementById("err").value;
+        try {
+          if (x == "") throw "empty";
+          if (isNaN(x)) throw "not a number";
+          x = Number(x);
+          if (x < 1) throw "low";
+          if (x > 10) throw " high";
+        } catch (err) {
+          message.innerHTML = "Input is " + err;
+        } finally {
+          message1.innerHTML = "Finally Block Executed :";
+        }
+      }
+      /* 5t word from para*/
+      function count() {
+        var fif_ = document.getElementById("fif");
+        var sev_ = document.getElementById("sev");
+        var ten_ = document.getElementById("ten");
+        var st =
+          "  JavaScript (JS) is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions. While it is most  well-known as the scripting language for Web pages, many non-browser  environments also use it, such as Node.js, Apache CouchDB and Adobe Acrobat";
+        var res = st.split(" ");
+        var fif = res[6];
+        var sev = res[8];
+        var ten = res[11];
+        fif_.innerHTML = " <h4>5<sup>th</sup> word :" + fif + "</h4>";
+        sev_.innerHTML = " <h4>7<sup>th</sup> word :  " + sev + "</h4>";
+        ten_.innerHTML = " <h4>10<sup>th</sup> word : " + ten + "</h4>";
+        +"</h4>";
+      }
+    </script>
+  </head>
+  <body>
+    <p><b>Display Date in console :</b></p>
+    <button onclick="dateshow()">Click n Check in console</button>
+    <br />
+    <hr />
+
+    <button
+      onclick="document.getElementById('para').innerHTML='<h3>Hello</h3>'"
+    >
+      Greet Me :
+    </button>
+
+    <p id="para"></p>
+
+    <hr />
+    <button onclick="this.innerHTML='Hello'">
+      Greet Me :
+    </button>
+
+    <hr />
+    <button
+      onmouseover="document.body.style.backgroundColor ='orange'"
+      onmouseout="document.body.style.backgroundColor ='#92ECEC'"
+    >
+      Hover Here.
+    </button>
+
+    <hr />
+    <p>
+      When the user presses a key in the input field a function is triggered
+    </p>
+    <input type="text" onkeydown="keyfun()" />
+
+    <hr />
+    <h4>Check Number is Between 10 - 100</h4>
+    ENTER NUMBER:
+    <input type="text" id="bet" />
+    <button onclick="bet()">Check</button>
+
+    <hr />
+    <h4>Fibonacci series</h4>
+    ENTER NUMBER:
+    <input type="text" id="fib" /> &nbsp;<button onclick="fib()">
+      Generate
+    </button>
+
+    <hr />
+    <h4>Error Handling:try , catch</h4>
+    <p>input a number between 1 and 10:</p>
+
+    <input id="err" type="text" />
+    <button type="button" onclick="err()">Check</button>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <hr />
+
+    <p id="count">
+      JavaScript (JS) is a lightweight, interpreted, or just-in-time compiled
+      programming language with first-class functions. While it is most
+      well-known as the scripting language for Web pages, many non-browser
+      environments also use it, such as Node.js, Apache CouchDB and Adobe
+      Acrobat
+    </p>
+    <button onclick="count()">Click</button><br />
+    <span id="fif"></span>
+    <span id="sev"></span>
+    <span id="ten"></span>
+  </body>
+</html>
